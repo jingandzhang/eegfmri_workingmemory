@@ -1,0 +1,21 @@
+clear
+load /mnt/tambinidata/sleepstudy/analysis/ss_info.mat
+addpath /mnt/tambinidata/scripts/
+cd /mnt/tambinidata/sleepstudy/data/derivatives/group/so_nrem/fir_so/
+cmd = ['fslmerge -t group_fir_so '];
+PathToData = '/mnt/tambinidata/sleepstudy/data/derivatives/group/so_nrem/fir_so/';
+
+n=0
+for i_beta = 1:9
+    for iss = 1:length(ss_list)
+        ss = ss_list{iss};
+        sessions = ses_list{iss};
+        for i_ses = sessions
+            cmd = [cmd PathToData 'sub-' ss '_ses-' num2str(i_ses)  '_beta000' i_beta '.nii.gz '];
+            disp(['sub-' ss '_ses-' num2str(i_ses)  '_beta000' i_beta]);
+            n=n+1;
+        end
+    end
+end
+ 
+unix(cmd)

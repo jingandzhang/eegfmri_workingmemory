@@ -1,0 +1,11 @@
+# Observed imports; historical versions must be established before locking an environment.
+numpy
+pandas
+scipy
+nibabel
+statsmodels
+matplotlib
+seaborn
+nilearn
+nipype
+jupyter

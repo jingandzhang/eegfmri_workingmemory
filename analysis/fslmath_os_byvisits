@@ -1,0 +1,65 @@
+#105 106 107 108 111 112 113 114 115 116 118 121 123 124 125 126 127 130 131 132 133 135 136 137 138 142 144 148 149
+for subj in 152 153 154 156
+	do
+	cd /mnt/tambinidata/sleepstudy/data/derivatives/mriprep/fmriprep/sub-${subj}
+
+	# AM - PM  Ospen vs Math
+	fslmaths ses-2/spm_os_model1_test/sub-${subj}_ses-2_con_ospan_vs_math.nii -sub ses-1/spm_os_model1_test/sub-${subj}_ses-1_con_ospan_vs_math.nii -nan ../../../group/ospan_vs_math/v1_sub-${subj}_am-pm_ospan_vs_math
+	fslmaths ses-4/spm_os_model1_test/sub-${subj}_ses-4_con_ospan_vs_math.nii -sub ses-3/spm_os_model1_test/sub-${subj}_ses-3_con_ospan_vs_math.nii -nan ../../../group/ospan_vs_math/v2_sub-${subj}_am-pm_ospan_vs_math
+
+done
+
+
+for subj in 152 153 154 156
+	do
+	cd /mnt/tambinidata/sleepstudy/data/derivatives/mriprep/fmriprep/sub-${subj}
+
+	# AM - PM  Ospen vs Baseline
+	fslmaths ses-2/spm_os_model1_test/sub-${subj}_ses-2_con_ospan_vs_baseline.nii -sub ses-1/spm_os_model1_test/sub-${subj}_ses-1_con_ospan_vs_baseline.nii -nan ../../../group/ospan_vs_baseline/v1_sub-${subj}_am-pm_ospan_vs_baseline
+	fslmaths ses-4/spm_os_model1_test/sub-${subj}_ses-4_con_ospan_vs_baseline.nii -sub ses-3/spm_os_model1_test/sub-${subj}_ses-3_con_ospan_vs_baseline.nii -nan ../../../group/ospan_vs_baseline/v2_sub-${subj}_am-pm_ospan_vs_baseline
+
+done
+
+
+for subj in 152 153 154 156
+	do
+	cd /mnt/tambinidata/sleepstudy/data/derivatives/mriprep/fmriprep/sub-${subj}
+
+	# AM - PM  Ospen vs Baseline
+	fslmaths ses-2/spm_os_model1_test/sub-${subj}_ses-2_con_math_vs_baseline.nii -sub ses-1/spm_os_model1_test/sub-${subj}_ses-1_con_math_vs_baseline.nii -nan ../../../group/math_vs_baseline/v1_sub-${subj}_am-pm_math_vs_baseline
+	fslmaths ses-4/spm_os_model1_test/sub-${subj}_ses-4_con_math_vs_baseline.nii -sub ses-3/spm_os_model1_test/sub-${subj}_ses-3_con_math_vs_baseline.nii -nan ../../../group/math_vs_baseline/v2_sub-${subj}_am-pm_math_vs_baseline
+
+done
+
+
+for subj in 105 106 107 108 111 112 113 114 115 116 118 121 123 124 125 126 127 130 131 132 133 135 136 137 138 142 144 148 149 152 102 103 141 120 145
+	do
+	cd /mnt/tambinidata/sleepstudy/data/derivatives/mriprep/fmriprep/sub-${subj}
+
+	# Allsessions  Ospen vs Math
+	fslmaths ses-2/spm_os_model1_test/sub-${subj}_ses-2_con_ospan_vs_math.nii -add ses-1/spm_os_model1_test/sub-${subj}_ses-1_con_ospan_vs_math.nii -div 2 -nan ../../../group/ospan_vs_math/v1_sub-${subj}_allsessions_ospan_vs_math
+	fslmaths ses-4/spm_os_model1_test/sub-${subj}_ses-4_con_ospan_vs_math.nii -add ses-3/spm_os_model1_test/sub-${subj}_ses-3_con_ospan_vs_math.nii -div 2 -nan ../../../group/ospan_vs_math/v2_sub-${subj}_allsessions_ospan_vs_math
+
+done
+
+
+for subj in 105 106 107 108 111 112 113 114 115 116 118 121 123 124 125 126 127 130 131 132 133 135 136 137 138 142 144 148 149 152 102 103 141 120 145
+	do
+	cd /mnt/tambinidata/sleepstudy/data/derivatives/mriprep/fmriprep/sub-${subj}
+
+	# Allsessions  Ospen vs Baseline
+	fslmaths ses-2/spm_os_model1_test/sub-${subj}_ses-2_con_ospan_vs_baseline.nii -add ses-1/spm_os_model1_test/sub-${subj}_ses-1_con_ospan_vs_baseline.nii -div 2 -nan ../../../group/ospan_vs_baseline/v1_sub-${subj}_allsessions_ospan_vs_baseline
+	fslmaths ses-4/spm_os_model1_test/sub-${subj}_ses-4_con_ospan_vs_baseline.nii -add ses-3/spm_os_model1_test/sub-${subj}_ses-3_con_ospan_vs_baseline.nii -div 2 -nan ../../../group/ospan_vs_baseline/v2_sub-${subj}_allsessions_ospan_vs_baseline
+
+done
+
+
+for subj in 105 106 107 108 111 112 113 114 115 116 118 121 123 124 125 126 127 130 131 132 133 135 136 137 138 142 144 148 149 152 102 103 141 120 145
+	do
+	cd /mnt/tambinidata/sleepstudy/data/derivatives/mriprep/fmriprep/sub-${subj}
+
+	# Allsessions  Ospen vs Baseline
+	fslmaths ses-2/spm_os_model1_test/sub-${subj}_ses-2_con_math_vs_baseline.nii -add ses-1/spm_os_model1_test/sub-${subj}_ses-1_con_math_vs_baseline.nii -div 2 -nan ../../../group/math_vs_baseline/v1_sub-${subj}_allsessions_math_vs_baseline
+	fslmaths ses-4/spm_os_model1_test/sub-${subj}_ses-4_con_math_vs_baseline.nii -add ses-3/spm_os_model1_test/sub-${subj}_ses-3_con_math_vs_baseline.nii -div 2 -nan ../../../group/math_vs_baseline/v2_sub-${subj}_allsessions_math_vs_baseline
+
+done

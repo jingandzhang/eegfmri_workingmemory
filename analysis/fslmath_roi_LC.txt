@@ -1,0 +1,10 @@
+#!/bin/bash
+
+for subj in 105 106 107 108 111 112 113 114 115 116 118 121 123 124 125 126 127 130 131 132 133 135 136 137 138
+	do	
+	for i_ses in 1 2 3 4
+		do
+		cd /mnt/tambinidata/sleepstudy/data/derivatives/mriprep/fmriprep/sub-${subj}/ses-${i_ses}/spm_os_model1_test/
+		fslmeants -i sub-${subj}_ses-${i_ses}_con_ospan_vs_math.nii -m /mnt/tambinidata/sleepstudy/Sphere_bin_LC_-5_-34_-21.nii.gz
+	done
+done

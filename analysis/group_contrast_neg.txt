@@ -1,0 +1,55 @@
+cd /mnt/tambinidata/sleepstudy/data/derivatives/group/ospan_vs_math
+
+fslmaths group_allsessions_ospan_vs_math_complete2V.nii.gz -mul -1 -nan group_allsessions_ospan_vs_math_complete2V_neg.nii
+
+fslmaths group_allsessions_ospan_vs_math_allsub.nii.gz -mul -1 -nan group_allsessions_ospan_vs_math_allsub_neg.nii
+
+fslmaths group_am-pm_ospan_vs_math_complete2V.nii.gz -mul -1 -nan group_am-pm_ospan_vs_math_complete2V_neg.nii
+
+fslmaths group_am-pm_ospan_vs_math_allsub.nii.gz -mul -1 -nan group_am-pm_ospan_vs_math_allsub_neg.nii
+
+fslmaths group_amaverage_ospan_vs_math_complete2V.nii.gz -mul -1 -nan group_amaverage_ospan_vs_math_complete2V_neg.nii
+
+fslmaths group_amaverage_ospan_vs_math_allsub.nii.gz -mul -1 -nan group_amaverage_ospan_vs_math_allsub_neg.nii
+
+fslmaths group_amaverage_ospan_vs_math_complete2V.nii.gz -mul -1 -nan group_pmaverage_ospan_vs_math_complete2V_neg.nii
+
+fslmaths group_amaverage_ospan_vs_math_allsub.nii.gz -mul -1 -nan group_pmaverage_ospan_vs_math_allsub_neg.nii
+
+
+cd /mnt/tambinidata/sleepstudy/data/derivatives/group/ospan_vs_baseline
+
+fslmaths group_allsessions_ospan_vs_baseline_complete2V.nii.gz -mul -1 -nan group_allsessions_ospan_vs_baseline_complete2V_neg.nii
+
+fslmaths group_allsessions_ospan_vs_baseline_allsub.nii.gz -mul -1 -nan group_allsessions_ospan_vs_baseline_allsub_neg.nii
+
+fslmaths group_am-pm_ospan_vs_baseline_complete2V.nii.gz -mul -1 -nan group_am-pm_ospan_vs_baseline_complete2V_neg.nii
+
+fslmaths group_am-pm_ospan_vs_baseline_allsub.nii.gz -mul -1 -nan group_am-pm_ospan_vs_baseline_allsub_neg.nii
+
+fslmaths group_amaverage_ospan_vs_baseline_complete2V.nii.gz -mul -1 -nan group_amaverage_ospan_vs_baseline_complete2V_neg.nii
+
+fslmaths group_amaverage_ospan_vs_baseline_allsub.nii.gz -mul -1 -nan group_amaverage_ospan_vs_baseline_allsub_neg.nii
+
+fslmaths group_amaverage_ospan_vs_baseline_complete2V.nii.gz -mul -1 -nan group_pmaverage_ospan_vs_baseline_complete2V_neg.nii
+
+fslmaths group_amaverage_ospan_vs_baseline_allsub.nii.gz -mul -1 -nan group_pmaverage_ospan_vs_baseline_allsub_neg.nii
+
+
+cd /mnt/tambinidata/sleepstudy/data/derivatives/group/math_vs_baseline
+
+fslmaths group_allsessions_math_vs_baseline_complete2V.nii.gz -mul -1 -nan group_allsessions_math_vs_baseline_complete2V_neg.nii
+
+fslmaths group_allsessions_math_vs_baseline_allsub.nii.gz -mul -1 -nan group_allsessions_math_vs_baseline_allsub_neg.nii
+
+fslmaths group_am-pm_math_vs_baseline_complete2V.nii.gz -mul -1 -nan group_am-pm_math_vs_baseline_complete2V_neg.nii
+
+fslmaths group_am-pm_math_vs_baseline_allsub.nii.gz -mul -1 -nan group_am-pm_math_vs_baseline_allsub_neg.nii
+
+fslmaths group_amaverage_math_vs_baseline_complete2V.nii.gz -mul -1 -nan group_amaverage_math_vs_baseline_complete2V_neg.nii
+
+fslmaths group_amaverage_math_vs_baseline_allsub.nii.gz -mul -1 -nan group_amaverage_math_vs_baseline_allsub_neg.nii
+
+fslmaths group_amaverage_math_vs_baseline_complete2V.nii.gz -mul -1 -nan group_pmaverage_math_vs_baseline_complete2V_neg.nii
+
+fslmaths group_amaverage_math_vs_baseline_allsub.nii.gz -mul -1 -nan group_pmaverage_math_vs_baseline_allsub_neg.nii

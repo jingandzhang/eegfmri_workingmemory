@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cd /mnt/tambinidata/sleepstudy/data/derivatives/group/sp_nrem/allvisits/
+fslmerge -t group_sp_nrem /mnt/tambinidata/sleepstudy/data/derivatives/group/sp_nrem/v*
+
+cd /mnt/tambinidata/sleepstudy/data/derivatives/group/so_nrem/allvisits/
+fslmerge -t group_so_nrem /mnt/tambinidata/sleepstudy/data/derivatives/group/so_nrem/v*
+
+cd /mnt/tambinidata/sleepstudy/data/derivatives/group/sp_nrem/average/
+fslmerge -t group_sp_nrem /mnt/tambinidata/sleepstudy/data/derivatives/group/sp_nrem/average_*
+
+cd /mnt/tambinidata/sleepstudy/data/derivatives/group/so_nrem/average/
+fslmerge -t group_so_nrem /mnt/tambinidata/sleepstudy/data/derivatives/group/so_nrem/average_*

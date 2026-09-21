@@ -1,0 +1,55 @@
+N_parcel = 100;
+save_dir = '/mnt/tambinidata/sleepstudy/data/derivatives/group/so_vs_ampm_corr';
+addpath /mnt/tambinidata/scripts/
+
+
+os_dir = '/mnt/tambinidata/sleepstudy/data/derivatives/group/so_indiv/allvisits/positive/';
+so_map = glob('OneSampT_tstat1.nii*', os_dir);
+assert(length(so_map)==1)
+
+unix(['gunzip ' so_map{1}])
+so_map = glob('OneSampT_tstat1.nii*', os_dir);
+
+info = spm_vol(so_map{1});
+so_data = spm_read_vols(info);
+
+ampm_dir = '/mnt/tambinidata/sleepstudy/data/derivatives/group/ospan_vs_math/am-pm/allsub/positive/';
+ampm_map = glob('OneSampT_tstat1.nii*', ampm_dir);
+assert(length(ampm_map)==1)
+
+unix(['gunzip ' ampm_map{1}])
+ampm_map = glob('OneSampT_tstat1.nii*', ampm_dir);
+
+
+info = spm_vol(ampm_map{1});
+ampm_data = spm_read_vols(info);
+
+r_vec = zeros(1,N_parcel);
+p_vec = zeros(1,N_parcel);
+
+for i = 1:N_parcel   
+    tmp_so_data  = [];
+    tmp_ampm_data = [];
+    %brain_mask_fl = '/mnt/tambinidata/sleepstudy/data/derivatives/group/MNI_brainmask_ds_noCBS_copy.nii'; 
+    mask_dir = ['/mnt/tambinidata/atlas/Yeo_JNeurophysiol11_MNI152/' num2str(N_parcel) 'parcels/'];
+    mask_fl = [mask_dir 'roi_' num2str(i) '_ds.nii'];
+    info = spm_vol(mask_fl);
+    brain_mask = spm_read_vols(info);
+
+    % add parcel mask to brain mask
+    tmp_so_data = so_data(brain_mask==1);
+    tmp_ampm_data = ampm_data(brain_mask==1);
+    
+    [coeff,stats,r] = arobustfit(tmp_so_data,tmp_ampm_data);
+    slope_idx = 2;
+    r_vec(i) = round(r,5);
+    p_vec(i) = round(stats.p(slope_idx),5);
+    %%
+    figure(1)
+    linregplotdata_robust_corrtext(tmp_so_data,tmp_ampm_data)
+    fdir = sprintf('%s/ampm_vs_so_corr_parcel_%d.png',save_dir,i);
+    pause(1)    
+    print('-f1','-dpng',fdir);
+    clf
+end
+save([save_dir '/ampm_vs_so_corr_' num2str(N_parcel) 'parcel'],'r_vec','p_vec')

@@ -1,0 +1,42 @@
+#!/bin/bash
+for subj in 102 103 105 106 107 108 111 112 113 114 115 116 118 120 121 123 124 125 126 127 130 131 132 133 135 136 137 138 141 142 144 145 148 149 152 153 154 156 157
+	do
+	cd /mnt/tambinidata/sleepstudy/data/derivatives/mriprep/fmriprep/sub-${subj}
+
+	# AM - PM  Ospen vs Math
+	fslmaths ses-2/spm_os_model1_test/sub-${subj}_ses-2_con_ospan_vs_math.nii -sub ses-1/spm_os_model1_test/sub-${subj}_ses-1_con_ospan_vs_math.nii -nan ../../../group/ospan_vs_math/sub-${subj}_am-pm_ospan_vs_math
+
+	# AM - PM Ospen vs Baseline
+	fslmaths ses-2/spm_os_model1_test/sub-${subj}_ses-2_con_ospan_vs_baseline.nii -sub ses-1/spm_os_model1_test/sub-${subj}_ses-1_con_ospan_vs_baseline.nii -nan ../../../group/ospan_vs_baseline/sub-${subj}_am-pm_ospan_vs_baseline
+
+	# AM - PM Math vs Baseline
+	fslmaths ses-2/spm_os_model1_test/sub-${subj}_ses-2_con_math_vs_baseline.nii -sub ses-1/spm_os_model1_test/sub-${subj}_ses-1_con_math_vs_baseline.nii -nan ../../../group/math_vs_baseline/sub-${subj}_am-pm_math_vs_baseline
+
+	# Average all sessions Ospen vs Math
+	fslmaths ses-1/spm_os_model1_test/sub-${subj}_ses-1_con_ospan_vs_math.nii -add ses-2/spm_os_model1_test/sub-${subj}_ses-2_con_ospan_vs_math.nii -div 2 -nan ../../../group/ospan_vs_math/sub-${subj}_allsessions_ospan_vs_math
+
+	# Average all sessions Ospen vs Baseline
+	fslmaths ses-1/spm_os_model1_test/sub-${subj}_ses-1_con_ospan_vs_baseline.nii -add ses-2/spm_os_model1_test/sub-${subj}_ses-2_con_ospan_vs_baseline.nii -div 2 -nan ../../../group/ospan_vs_baseline/sub-${subj}_allsessions_ospan_vs_baseline
+
+	# Average all sessions Math vs Baseline
+	fslmaths ses-1/spm_os_model1_test/sub-${subj}_ses-1_con_math_vs_baseline.nii -add ses-2/spm_os_model1_test/sub-${subj}_ses-2_con_math_vs_baseline.nii -div 2 -nan ../../../group/math_vs_baseline/sub-${subj}_allsessions_math_vs_baseline
+
+	# AM average Ospen vs Math
+	fslmaths ses-2/spm_os_model1_test/sub-${subj}_ses-2_con_ospan_vs_math.nii -nan ../../../group/ospan_vs_math/sub-${subj}_amaverage_ospan_vs_math
+
+	# AM average Ospen vs Baseline
+	fslmaths ses-2/spm_os_model1_test/sub-${subj}_ses-2_con_ospan_vs_baseline.nii -nan ../../../group/ospan_vs_baseline/sub-${subj}_amaverage_ospan_vs_baseline
+
+	# AM average Math vs Baseline
+	fslmaths ses-2/spm_os_model1_test/sub-${subj}_ses-2_con_math_vs_baseline.nii -nan ../../../group/math_vs_baseline/sub-${subj}_amaverage_math_vs_baseline
+
+	# PM average Ospen vs Math
+	fslmaths ses-1/spm_os_model1_test/sub-${subj}_ses-1_con_ospan_vs_math.nii -nan ../../../group/ospan_vs_math/sub-${subj}_pmaverage_ospan_vs_math
+
+	# PM average Ospen vs Baseline
+	fslmaths ses-1/spm_os_model1_test/sub-${subj}_ses-1_con_ospan_vs_baseline.nii -nan ../../../group/ospan_vs_baseline/sub-${subj}_pmaverage_ospan_vs_baseline
+
+	# PM average Math vs Baseline
+	fslmaths ses-1/spm_os_model1_test/sub-${subj}_ses-1_con_math_vs_baseline.nii -nan ../../../group/math_vs_baseline/sub-${subj}_pmaverage_math_vs_baseline
+
+done

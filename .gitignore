@@ -1,0 +1,29 @@
+# Data and generated results
+/data/
+/derivatives/
+/results/
+*.mat
+*.nii
+*.nii.gz
+*.edf
+*.eeg
+*.vhdr
+*.vmrk
+*.dcm
+*.csv
+*.tsv
+# Generated task sequences and participant responses
+/task/working_memory/*/
+# Local environments and credentials
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.asv
+*~
+.DS_Store
+Thumbs.db
+# Explicitly force-add only reviewed nonparticipant templates/masks when needed.
